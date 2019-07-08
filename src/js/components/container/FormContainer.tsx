@@ -1,33 +1,43 @@
-import React, { Component } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import Input from "../presentational/Input.jsx";
-class FormContainer extends Component {
+
+interface formProps{
+
+}
+
+interface formState{
+  "seo_title": string
+}
+export default class FormContainer extends React.Component<formProps, formState> {
+  state: formState= {
+    seo_title: ""
+  };
   constructor() {
     super();
-    this.state = {
-      seo_title: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
+    // this.state = {
+    //   seo_title: ""
+    // };
+    // this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(event) {
-    this.setState({ [event.target.id]: event.target.value });
-  }
+  
   render() {
     const { seo_title } = this.state;
     return (
       <form id="article-form">
-        <Input
+        <input
           text="SEO title"
           label="seo_title"
           type="text"
           id="seo_title"
           value={seo_title}
-          handleChange={this.handleChange}
+          onChange={(e)=>{
+            console.log(e.currentTarget.value);
+            this.setState({"seo_title": e.currentTarget.value})}}
         />
       </form>
     );
   }
 }
-export default FormContainer;
 const wrapper = document.getElementById("create-article-form");
 wrapper ? ReactDOM.render(<FormContainer/>, wrapper) : false;
