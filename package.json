@@ -20,6 +20,7 @@
     "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@owneriq/analytics.js-integration-owneriq-pixel": "^1.0.2",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "html-loader": "^0.5.5",
