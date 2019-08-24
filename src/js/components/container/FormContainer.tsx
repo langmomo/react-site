@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import Input from "../presentational/Input";
 import Toggle from "../presentational/Toggle";
 import Game from "./game";
-import Oiq from "@owneriq/analytics.js-integration-owneriq-pixel"
+import Login from "./login";
+import Table from "../presentational/Table";
 interface formProps{
 
 }
@@ -19,19 +20,17 @@ export default class FormContainer extends React.Component<formProps, formState>
   };
 
   render() {
-    var oiq = new Oiq({
-      dataGroupId: '9nfdft',
-      analyticTagId: 'gcb8',
-      conversionTagId: '6qg2'
-    });
-    oiq.page()
-    const { seo_title, selected } = this.state;
+
     return (
+      
       <div>
-<Toggle selected={this.state.selected}>
-      <Input onChange={(e)=>this.setState({"seo_title": e.currentTarget.value})}/>
-      </Toggle>
-      <Game></Game>
+          <Toggle selected={this.state.selected}>
+            <Input onChange={(e)=>this.setState({"seo_title": e.currentTarget.value})}/>
+          </Toggle>
+          <Game></Game>
+          <Input></Input>
+          <Login></Login>
+          <Table></Table>
       </div>
       
       
